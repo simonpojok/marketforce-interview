@@ -1,3 +1,9 @@
+import Dependencies.androidTestImplementation
+import Dependencies.debugImplementation
+import Dependencies.implementation
+import Dependencies.kapt
+import Dependencies.testImplementation
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -24,12 +30,15 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
     compileOptions {
-        sourceCompatibility  = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
@@ -49,18 +58,16 @@ android {
 }
 
 dependencies {
+    implementation(UiDependencies.appLibraries)
+    testImplementation(UiDependencies.testLibraries)
+    androidTestImplementation(UiDependencies.androidTestLibraries)
+    kapt(UiDependencies.kaptLibraries)
+    debugImplementation(UiDependencies.debugLibraries)
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.compose.ui:ui:${Versions.composeVersion}")
-    implementation("androidx.compose.material:material:1.0.5")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.0.5")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
-    implementation("androidx.activity:activity-compose:1.3.1")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.5")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.0.5")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
-    kapt("androidx.room:room-compiler:2.4.1")
+    implementation(project(":domain"))
+    implementation(project(":data"))
+    implementation(project(":remote"))
+    implementation(project(":local"))
+    implementation(project(":presentation"))
+
 }

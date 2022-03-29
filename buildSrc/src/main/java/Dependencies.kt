@@ -48,4 +48,10 @@ object Dependencies {
             add("testImplementation", dependency)
         }
     }
+
+    fun DependencyHandler.debugImplementation(list: List<String>) {
+        list.forEach { dependency ->
+            add("debugImplementation", dependency)
+        }
+    }
 }
