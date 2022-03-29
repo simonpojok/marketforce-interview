@@ -47,7 +47,7 @@ fun ProductListItem(
             Canvas(modifier = Modifier
                 .size(50.dp)
                 .align(Alignment.Center), onDraw = {
-                drawCircle(color = Color.LightGray)
+                drawCircle(color = Color.Black.copy(alpha = 0.05f))
             })
             Icon(
                 modifier = Modifier.size(30.dp),
@@ -100,7 +100,7 @@ fun ProductValuePicker(
         Box(
             modifier = Modifier
                 .padding(horizontal = 8.dp)
-                .background(Color.LightGray)
+                .background(Color.Black.copy(alpha = 0.05f))
                 .width(50.dp)
                 .height(28.dp)
                 .clip(RoundedCornerShape(100f)),

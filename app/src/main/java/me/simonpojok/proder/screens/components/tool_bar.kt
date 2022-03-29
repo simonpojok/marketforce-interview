@@ -47,7 +47,8 @@ fun Toolbar(
                         .clickable { onDoneClicked() }
                 )
             }
-        }
+        },
+        elevation = 0.dp
     )
 }
 
