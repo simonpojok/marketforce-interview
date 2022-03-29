@@ -1,8 +1,5 @@
 package me.simonpojok.proder.screens.order_taking_screen
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Card
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
@@ -34,7 +30,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import me.simonpojok.proder.MainActivity
-import me.simonpojok.proder.getUserName
 import me.simonpojok.proder.model.ProductUiModel
 import me.simonpojok.proder.screens.components.Toolbar
 import me.simonpojok.proder.screens.order_taking_screen.components.ProductListItem
@@ -67,6 +62,7 @@ val cartItems = listOf(
 fun OrderTakingScreen(navController: NavHostController) {
     val context = LocalContext.current as MainActivity
     var products by remember { mutableStateOf(cartItems) }
+    var customerName by remember { mutableStateOf("") }
 
     val productsPrice = products.sumOf { product -> product.price * product.count }
     Scaffold(
@@ -95,14 +91,14 @@ fun OrderTakingScreen(navController: NavHostController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 8.dp)
-                        .height(50.dp),
+                        .height(54.dp),
                     color = Color.Black.copy(alpha = 0.1f)
                 ) {
                     OutlinedTextField(
                         modifier = Modifier
                             .fillMaxSize(),
-                        value = getUserName(context),
-                        onValueChange = {},
+                        value = customerName,
+                        onValueChange = { customerName = it },
                         colors = TextFieldDefaults.outlinedTextFieldColors(
                             focusedBorderColor = Color.Gray,
                             unfocusedBorderColor = Color.Gray,
@@ -110,7 +106,6 @@ fun OrderTakingScreen(navController: NavHostController) {
                             cursorColor = Color.Gray,
                             backgroundColor = MaterialTheme.colors.surface.copy(alpha = 0.3f)
                         ),
-                        enabled = false
                     )
                 }
 
@@ -184,7 +179,8 @@ fun OrderTakingScreen(navController: NavHostController) {
                         )
                     )
                     Text(
-                        text = "KES ${"%,d".format(productsPrice)}", style = MaterialTheme.typography.body1.copy(
+                        text = "KES ${"%,d".format(productsPrice)}",
+                        style = MaterialTheme.typography.body1.copy(
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp
                         )
