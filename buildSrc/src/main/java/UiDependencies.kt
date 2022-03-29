@@ -47,7 +47,7 @@ object UiDependencies {
         add(hiltWorker)
         add(retrofit)
         add(converterGson)
-        add(loggingInterceptor)
+//        add(loggingInterceptor)
         add(googleVolley)
         add(lifecycleExtensions)
         add(lifecycleReactiveStreamsKtx)
