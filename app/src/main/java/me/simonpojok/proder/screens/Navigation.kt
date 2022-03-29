@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import me.simonpojok.proder.screens.order_screen.OrderScreen
+import me.simonpojok.proder.screens.orders_screen.OrderScreen
 import me.simonpojok.proder.screens.order_taking_screen.OrderTakingScreen
 import me.simonpojok.proder.screens.splash_screen.SplashScreen
 

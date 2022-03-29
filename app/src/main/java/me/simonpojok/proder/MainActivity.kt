@@ -1,6 +1,7 @@
 package me.simonpojok.proder
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -29,6 +30,10 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    fun displayMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 }
 
