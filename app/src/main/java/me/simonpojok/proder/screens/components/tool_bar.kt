@@ -11,6 +11,7 @@ import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.Check
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -22,7 +23,8 @@ fun Toolbar(
     onDoneClicked: () -> Unit = {}
 ) {
     TopAppBar(
-        title = { Text(text = title) },
+        backgroundColor = Color.White,
+        title = { Text(text = title, color = Color.Black) },
         navigationIcon = {
             if (onNavigationIconClicked != null) {
                 Icon(
@@ -30,7 +32,8 @@ fun Toolbar(
                         .padding(start = 4.dp)
                         .clickable { onNavigationIconClicked() },
                     imageVector = Icons.Rounded.ArrowBack,
-                    contentDescription = null
+                    contentDescription = null,
+                    tint = Color.Black
                 )
             }
         },
