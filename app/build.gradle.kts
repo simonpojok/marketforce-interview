@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    kotlin("android")
+    kotlin("android.extensions")
+    kotlin("kapt")
 }
 
 android {
@@ -60,4 +62,5 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.5")
     debugImplementation("androidx.compose.ui:ui-tooling:1.0.5")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
+    kapt("androidx.room:room-compiler:2.4.1")
 }
