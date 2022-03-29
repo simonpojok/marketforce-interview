@@ -8,7 +8,7 @@ object Versions {
     const val javaInjectVersion = "1"
 
     // Testing
-    const val jUnitVersion = "2.13.2"
+    const val jUnitVersion = "4.13.2"
     const val mockitoVersion = "3.6.28"
 
     // AndroidTesting
