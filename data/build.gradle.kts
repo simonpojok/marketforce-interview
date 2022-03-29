@@ -1,3 +1,7 @@
+import Dependencies.implementation
+import Dependencies.testImplementation
+import Dependencies.androidTestImplementation
+
 plugins {
     id("java-library")
     id("org.jetbrains.kotlin.jvm")
