@@ -67,6 +67,8 @@ val cartItems = listOf(
 fun OrderTakingScreen(navController: NavHostController) {
     val context = LocalContext.current as MainActivity
     var products by remember { mutableStateOf(cartItems) }
+
+    val productsPrice = products.sumOf { product -> product.price * product.count }
     Scaffold(
         topBar = {
             Toolbar(
@@ -182,7 +184,7 @@ fun OrderTakingScreen(navController: NavHostController) {
                         )
                     )
                     Text(
-                        text = "KES 45000", style = MaterialTheme.typography.body1.copy(
+                        text = "KES ${"%,d".format(productsPrice)}", style = MaterialTheme.typography.body1.copy(
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp
                         )

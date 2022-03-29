@@ -63,7 +63,7 @@ fun ProductListItem(
                 )
             )
             Text(
-                text = "KES, $price", style = MaterialTheme.typography.body1.copy(
+                text = "KES, ${"%,d".format(price)}", style = MaterialTheme.typography.body1.copy(
                     fontSize = 15.sp,
                     color = Color.Gray
                 )
