@@ -16,7 +16,6 @@ object UiDependencies {
     // Hilt
     const val hiltCompiler = "androidx.hilt:hilt-compiler:1.0.0"
     const val hiltNavigation = "androidx.hilt:hilt-navigation-compose:1.0.0"
-    const val hiltLifecycleViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
     const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:1.0.0"
     const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:2.39"
     const val hiltAndroid = "com.google.dagger:hilt-android:2.39"
@@ -60,7 +59,6 @@ object UiDependencies {
         add(workRuntime)
         add(materialIconsCompose)
         add(hiltNavigation)
-        add(hiltLifecycleViewModel)
         add(hiltNavigationCompose)
         add(hiltAndroid)
         add(junitExt)

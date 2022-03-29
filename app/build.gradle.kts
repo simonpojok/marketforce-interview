@@ -58,6 +58,10 @@ android {
     }
 }
 
+configurations {
+    implementation.get().exclude(mapOf("group" to "org.jetbrains", "module" to "annotations"))
+}
+
 dependencies {
     implementation(UiDependencies.appLibraries)
     testImplementation(UiDependencies.testLibraries)
