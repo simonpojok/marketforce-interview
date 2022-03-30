@@ -12,6 +12,7 @@ class OrderDataToLocalMapper @Inject constructor() :
         id = data.id,
         customer_name = data.customerName,
         total_price = data.totalPrice,
-        date_time = data.dateTime
+        date_time = data.dateTime,
+        sync_status = data.syncStatus
     )
 }

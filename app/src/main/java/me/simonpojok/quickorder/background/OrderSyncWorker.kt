@@ -34,7 +34,11 @@ class OrderSyncWorker @AssistedInject constructor(
             val orders = getOrdersSyncStatusUseCase.buildUseCase(false)
             orders.forEach { order ->
                 val response = syncOrderUseCase.buildUseCase(order)
-                updateOrderUseCase.buildUseCase(response)
+                updateOrderUseCase.buildUseCase(
+                    response.copy(
+                        syncStatus = true
+                    )
+                )
 
             }
         } catch (exception: Exception) {

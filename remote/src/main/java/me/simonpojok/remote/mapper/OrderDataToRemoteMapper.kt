@@ -10,7 +10,7 @@ class OrderDataToRemoteMapper @Inject constructor() :
     override fun toRemote(data: OrderDataModel) = OrderRemoteModel(
         primaryKey = data.primaryKey,
         totalPrice = data.totalPrice,
-        id = data.id,
+        _id = data.id,
         syncStatus = data.syncStatus,
         dateTime = data.dateTime,
         customerName = data.customerName
