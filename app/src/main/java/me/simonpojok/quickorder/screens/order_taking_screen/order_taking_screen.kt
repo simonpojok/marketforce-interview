@@ -32,10 +32,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import me.simonpojok.presentation.viewModel.OrderTakingViewModel
 import me.simonpojok.quickorder.MainActivity
+import me.simonpojok.quickorder.model.OrderUiModel
 import me.simonpojok.quickorder.model.ProductUiModel
 import me.simonpojok.quickorder.screens.components.Toolbar
 import me.simonpojok.quickorder.screens.order_taking_screen.components.ProductListItem
 import me.simonpojok.quickorder.screens.order_taking_screen.components.RoundedCornerButton
+import java.util.Date
 
 val cartItems = listOf(
     ProductUiModel(
@@ -194,7 +196,23 @@ fun OrderTakingScreen(
                 }
 
                 RoundedCornerButton(modifier = Modifier.padding(top = 16.dp)) {
-
+                    if ((customerName.isEmpty() || customerName.isBlank()) && productsPrice == 0) {
+                        context.displayMessage("Add Product and Provide Customer Name")
+                    } else {
+                        val timeStamp = Date().time
+                        val orderUiModel = OrderUiModel(
+                            customerName = customerName,
+                            totalPrice = productsPrice,
+                            dateTime = timeStamp.toString()
+                        )
+                        viewModel.createOrder(
+                            order = context.orderUiToPresentationMapper.toPresentation(
+                                orderUiModel
+                            )
+                        )
+                        context.displayMessage("Order Added Successfully")
+                        navController.popBackStack()
+                    }
                 }
             }
         }

@@ -11,7 +11,7 @@ class CreateOrderUseCase @Inject constructor(
 ): BaseUseCase<Unit, OrderDomainModel>() {
     override suspend fun buildUseCase(input: OrderDomainModel?) {
         if (input != null) {
-            orderRepository.saveUserOrder(input)
+            return orderRepository.saveUserOrder(input)
         }
 
         throw IllegalArgumentException("Input Can't be null")
