@@ -4,13 +4,22 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import me.simonpojok.local.OrderDatabase
 import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
-@Module
+//@Module
+//@InstallIn(SingletonComponent::class)
 object LocalDataSourceLayer {
-    @Singleton
-    @Provides
-    fun providesOrderDao(database: OrderDatabase) = database.orderDao()
+//    @Singleton
+//    @Provides
+//    fun providesOrderDatabase(@ApplicationContext app: Context) = OrderDatabase.getInstance(app)
+//
+//    @Singleton
+//    @Provides
+//    fun providesOrderDao(database: OrderDatabase) = database.orderDao()
+
+//    @Singleton
+//    @Provides
+    fun providesString(): String {
+        return "Simon"
+    }
 }
