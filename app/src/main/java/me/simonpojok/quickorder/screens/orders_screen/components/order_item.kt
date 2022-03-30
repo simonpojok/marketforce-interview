@@ -1,6 +1,7 @@
 package me.simonpojok.quickorder.screens.orders_screen.components
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,6 +30,8 @@ fun OrderItem(
     orderItem: OrderUiModel
 ) {
     val dateFormat = SimpleDateFormat("dd MMM yyyy, HH:mm a", Locale.getDefault())
+
+    val status = if (orderItem.syncStatus) "Synced" else "Pending"
 
     Row(
         modifier = Modifier.padding(vertical = 8.dp, horizontal = 8.dp),
@@ -63,13 +67,26 @@ fun OrderItem(
             )
         }
 
-        Text(
-            modifier = Modifier.padding(horizontal = 12.dp),
-            text = "KES ${"%,d".format(orderItem.totalPrice)}",
-            style = MaterialTheme.typography.h4.copy(
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold
+        Column(verticalArrangement = Arrangement.SpaceBetween) {
+            Text(
+                modifier = Modifier.padding(horizontal = 12.dp),
+                text = "KES ${"%,d".format(orderItem.totalPrice)}",
+                style = MaterialTheme.typography.h4.copy(
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold
+                )
             )
-        )
+            Text(
+                modifier = Modifier.padding(horizontal = 12.dp),
+                text = status,
+                style = MaterialTheme.typography.body1.copy(
+                    fontSize = 12.sp,
+                    color = Color.LightGray,
+                    fontStyle = FontStyle.Italic
+                )
+            )
+        }
+
+
     }
 }
