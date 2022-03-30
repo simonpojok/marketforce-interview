@@ -15,7 +15,7 @@ private const val BASE_URL = "https://api.marketforce.com/"
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RemoteDataSource {
+object RemoteDataSourceLayer {
 
     @Provides
     @Singleton

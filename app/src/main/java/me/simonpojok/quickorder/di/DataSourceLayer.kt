@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import me.simonpojok.data.LocalDataSource
+import me.simonpojok.data.RemoteDataSource
 import me.simonpojok.data.repository.OrderRepositoryImpl
 import me.simonpojok.domain.repository.OrderRepository
 import me.simonpojok.local.LocalDataSourceImpl
@@ -24,7 +25,7 @@ abstract class DataSourceLayer {
     @Singleton
     @Binds
     abstract fun bindsRemoteDataSource(
-        remoteDataSource: RemoteDataSourceImpl
+        localDataSource: RemoteDataSourceImpl
     ): RemoteDataSource
 
     @Singleton
