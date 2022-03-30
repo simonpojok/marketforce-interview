@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
+import me.simonpojok.quickorder.mapper.OrderPresentationToUiMapper
 import me.simonpojok.quickorder.mapper.OrderUiToPresentationMapper
 import me.simonpojok.quickorder.screens.Navigation
 import me.simonpojok.quickorder.ui.theme.PrOderTheme
@@ -21,6 +22,9 @@ import javax.inject.Inject
 class MainActivity : ComponentActivity() {
     @Inject
     lateinit var orderUiToPresentationMapper: OrderUiToPresentationMapper
+
+    @Inject
+    lateinit var orderPresentationToUiMapper: OrderPresentationToUiMapper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

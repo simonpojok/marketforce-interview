@@ -19,6 +19,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,45 +29,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import me.simonpojok.presentation.viewModel.OrdersViewModel
 import me.simonpojok.quickorder.MainActivity
-import me.simonpojok.quickorder.model.OrderUiModel
 import me.simonpojok.quickorder.screens.Screen
 import me.simonpojok.quickorder.screens.components.Toolbar
 import me.simonpojok.quickorder.screens.orders_screen.components.OrderItem
-
-val orders = listOf(
-    OrderUiModel(
-        primaryKey = 1,
-        id = "xxxxxxx",
-        customerName = "Customer Name",
-        totalPrice = 450,
-        dateTime = "dhdhhdhd",
-        syncStatus = false
-    ),
-    OrderUiModel(
-        primaryKey = 1,
-        id = "xxxxxxx",
-        customerName = "Customer Name",
-        totalPrice = 450,
-        dateTime = "dhdhhdhd",
-        syncStatus = false
-    ),
-    OrderUiModel(
-        primaryKey = 1,
-        id = "xxxxxxx",
-        customerName = "Customer Name",
-        totalPrice = 450,
-        dateTime = "dhdhhdhd",
-        syncStatus = false
-    ),
-    OrderUiModel(
-        primaryKey = 1,
-        id = "xxxxxxx",
-        customerName = "Customer Name",
-        totalPrice = 450,
-        dateTime = "dhdhhdhd",
-        syncStatus = false
-    ),
-)
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 @Composable
 fun OrderScreen(
@@ -74,7 +41,8 @@ fun OrderScreen(
     viewModel: OrdersViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current as MainActivity
-
+    val orders = viewModel.orders.collectAsState(initial = emptyList())
+    val ordersUi = orders.value.map { context.orderPresentationToUiMapper.toUi(it) }
 
     Scaffold(
         topBar = {
@@ -130,8 +98,9 @@ fun OrderScreen(
                     .padding(top = 20.dp)
                     .weight(3f)
             ) {
-                items(orders.size) { index ->
-                    val order = orders[index]
+
+                items(ordersUi.size) { index ->
+                    val order = ordersUi[index]
                     Column {
                         Divider(
                             modifier = Modifier.padding(

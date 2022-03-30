@@ -19,11 +19,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.simonpojok.quickorder.model.OrderUiModel
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @Composable
 fun OrderItem(
     orderItem: OrderUiModel
 ) {
+    val dateFormat = SimpleDateFormat("dd MMM yyyy, HH:mm a", Locale.getDefault())
+
     Row(
         modifier = Modifier.padding(vertical = 8.dp, horizontal = 8.dp),
         verticalAlignment = Alignment.CenterVertically
@@ -50,7 +55,8 @@ fun OrderItem(
             )
             Text(
                 modifier = Modifier.padding(top = 2.dp),
-                text = "16 Feb 2022, 10:30am", style = MaterialTheme.typography.body1.copy(
+                text = dateFormat.format(Date(orderItem.dateTime.toLong())),
+                style = MaterialTheme.typography.body1.copy(
                     fontSize = 15.sp,
                     color = Color.Gray
                 )
@@ -59,7 +65,8 @@ fun OrderItem(
 
         Text(
             modifier = Modifier.padding(horizontal = 12.dp),
-            text = "KES ${orderItem.totalPrice}", style = MaterialTheme.typography.h4.copy(
+            text = "KES ${"%,d".format(orderItem.totalPrice)}",
+            style = MaterialTheme.typography.h4.copy(
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold
             )
