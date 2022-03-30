@@ -16,8 +16,8 @@ import me.simonpojok.domain.usecase.UpdateOrderUseCase
 import me.simonpojok.domain.usecase.base.GetOrdersSyncStatusUseCase
 import java.util.concurrent.TimeUnit
 
-private const val WORKER_REPEAT_INTERVAL: Long = 40
-private val WORKER_TIME_UNIT = TimeUnit.MINUTES
+private const val WORKER_REPEAT_INTERVAL: Long = 4
+private val WORKER_TIME_UNIT = TimeUnit.HOURS
 
 const val TAG = "OrderSyncWorker"
 
