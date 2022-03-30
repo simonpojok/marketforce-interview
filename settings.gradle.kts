@@ -13,9 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "QuickOrder"
-include ':app'
-include ':data'
-include ':domain'
-include ':local'
-include ':presentation'
-include ':remote'
+include(":app", ":data", ":domain", ":local", ":presentation", ":remote")
