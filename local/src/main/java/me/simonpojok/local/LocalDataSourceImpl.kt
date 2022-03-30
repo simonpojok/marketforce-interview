@@ -20,4 +20,12 @@ class LocalDataSourceImpl @Inject constructor(
 
     override fun getOrders() =
         orderDao.getOrders().map { orders -> orders.map { orderLocalToDataMapper.toData(it) } }
+
+    override suspend fun getOrders(syncStatus: Boolean): List<OrderDataModel> {
+        return orderDao.getOrders(syncStatus).map { orderLocalToDataMapper.toData(it) }
+    }
+
+    override suspend fun updateOrder(order: OrderDataModel) {
+        orderDao.updateLocalOrder(order = orderDataToLocalMapper.toLocal(order))
+    }
 }

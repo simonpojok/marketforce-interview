@@ -19,5 +19,5 @@ interface OrderDao {
     fun getOrders(): Flow<List<OrderLocalModel>>
 
     @Query("SELECT * FROM orders WHERE sync_status=:syncStatus")
-    fun getOrders(syncStatus: Boolean = false): Flow<List<OrderLocalModel>>
+    suspend fun getOrders(syncStatus: Boolean = false): List<OrderLocalModel>
 }
