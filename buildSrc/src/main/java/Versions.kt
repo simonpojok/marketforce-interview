@@ -15,4 +15,23 @@ object Versions {
 
     const val junitJunit = "4.13.2"
     const val mockitoCore = "3.6.28"
+
+    // Hilt
+    const val hiltWork = "1.0.0"
+    const val hiltAndroid = "2.39"
+    const val hiltAndroidCompiler = "2.39"
+    const val hiltCompiler = "1.0.0"
+
+    // Lifecycle
+    const val lifecycleViewModel = "2.5.0-alpha05"
+    const val lifecycleExtension = "2.2.0"
+    const val lifecycleReactiveStreamsKtx = "2.4.0"
+    const val lifecycleCompiler = "2.4.0"
+
+    // Test
+    const val coreTesting = "2.1.0"
+
+    // Android
+    const val testRunner ="1.4.0"
+    const val espressoCore = "3.4.0"
 }
