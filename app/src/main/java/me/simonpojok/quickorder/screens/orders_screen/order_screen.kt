@@ -32,8 +32,6 @@ import me.simonpojok.quickorder.MainActivity
 import me.simonpojok.quickorder.screens.Screen
 import me.simonpojok.quickorder.screens.components.Toolbar
 import me.simonpojok.quickorder.screens.orders_screen.components.OrderItem
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 @Composable
 fun OrderScreen(
@@ -43,6 +41,7 @@ fun OrderScreen(
     val context = LocalContext.current as MainActivity
     val orders = viewModel.orders.collectAsState(initial = emptyList())
     val ordersUi = orders.value.map { context.orderPresentationToUiMapper.toUi(it) }
+        .sortedByDescending { order -> order.dateTime.toLong() }
 
     Scaffold(
         topBar = {
