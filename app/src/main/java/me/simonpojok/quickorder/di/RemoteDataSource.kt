@@ -1,11 +1,9 @@
 package me.simonpojok.quickorder.di
 
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import me.simonpojok.remote.RemoteDataSourceImpl
 import me.simonpojok.remote.service.OrderService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,18 +13,9 @@ import javax.inject.Singleton
 
 private const val BASE_URL = "https://api.marketforce.com/"
 
-@Module(includes = [RemoteDataSource.Binders::class])
+@Module
 @InstallIn(SingletonComponent::class)
-class RemoteDataSource {
-
-    @InstallIn(SingletonComponent::class)
-    @Module
-    interface Binders {
-        @Binds
-        fun bindsRemoteDataSource(
-            remoteDataSource: RemoteDataSourceImpl
-        ): RemoteDataSource
-    }
+object RemoteDataSource {
 
     @Provides
     @Singleton

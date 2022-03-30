@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
+import me.simonpojok.quickorder.background.OrderSyncWorker
 import me.simonpojok.quickorder.mapper.OrderPresentationToUiMapper
 import me.simonpojok.quickorder.mapper.OrderUiToPresentationMapper
 import me.simonpojok.quickorder.screens.Navigation
@@ -28,6 +29,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        OrderSyncWorker.start(this)
         setContent {
             PrOderTheme {
                 // A surface container using the 'background' color from the theme

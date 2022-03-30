@@ -8,6 +8,7 @@ import me.simonpojok.data.LocalDataSource
 import me.simonpojok.data.repository.OrderRepositoryImpl
 import me.simonpojok.domain.repository.OrderRepository
 import me.simonpojok.local.LocalDataSourceImpl
+import me.simonpojok.remote.RemoteDataSourceImpl
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -19,6 +20,12 @@ abstract class DataSourceLayer {
     abstract fun bindsLocalDataSource(
         localDataSource: LocalDataSourceImpl
     ): LocalDataSource
+
+    @Singleton
+    @Binds
+    abstract fun bindsRemoteDataSource(
+        remoteDataSource: RemoteDataSourceImpl
+    ): RemoteDataSource
 
     @Singleton
     @Binds

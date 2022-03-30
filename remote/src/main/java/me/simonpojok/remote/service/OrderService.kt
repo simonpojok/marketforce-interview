@@ -1,11 +1,11 @@
 package me.simonpojok.remote.service
 
 import me.simonpojok.remote.model.OrderRemoteModel
-import me.simonpojok.remote.model.order.PostOrderReponse
+import me.simonpojok.remote.model.order.PostOrderResponse
 import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface OrderService {
     @POST("/orders")
-    fun postOrder(@Body order: OrderRemoteModel): PostOrderReponse
+    fun postOrder(@Body order: OrderRemoteModel): PostOrderResponse
 }
