@@ -7,7 +7,6 @@ import Dependencies.testImplementation
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("android.extensions")
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
 }

@@ -1,6 +1,6 @@
-package me.simonpojok.proder.model
+package me.simonpojok.domain.model
 
-data class OrderUiModel(
+data class OrderDomainModel(
     val primaryKey: Int,
     val id: String,
     val customerName: String,

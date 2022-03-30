@@ -33,7 +33,7 @@ import me.simonpojok.proder.screens.orders_screen.components.OrderItem
 
 val orders = listOf(
     OrderUiModel(
-        key = 1,
+        primaryKey = 1,
         id = "xxxxxxx",
         customerName = "Customer Name",
         totalPrice = 450,
@@ -41,7 +41,7 @@ val orders = listOf(
         syncStatus = false
     ),
     OrderUiModel(
-        key = 1,
+        primaryKey = 1,
         id = "xxxxxxx",
         customerName = "Customer Name",
         totalPrice = 450,
@@ -49,7 +49,7 @@ val orders = listOf(
         syncStatus = false
     ),
     OrderUiModel(
-        key = 1,
+        primaryKey = 1,
         id = "xxxxxxx",
         customerName = "Customer Name",
         totalPrice = 450,
@@ -57,7 +57,7 @@ val orders = listOf(
         syncStatus = false
     ),
     OrderUiModel(
-        key = 1,
+        primaryKey = 1,
         id = "xxxxxxx",
         customerName = "Customer Name",
         totalPrice = 450,

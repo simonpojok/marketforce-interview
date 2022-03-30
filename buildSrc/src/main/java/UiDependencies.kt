@@ -42,6 +42,9 @@ object UiDependencies {
     const val hiltWorker = "androidx.hilt:hilt-work:1.0.0"
     const val workRuntime = "androidx.work:work-runtime-ktx:2.7.1"
 
+    //Room
+    const val roomRuntime = "androidx.room:room-runtime:2.4.1"
+
     val appLibraries = arrayListOf<String>().apply {
         add(Dependencies.coreKtx)
         add(hiltWorker)
@@ -68,6 +71,7 @@ object UiDependencies {
         add(composeToolingPreview)
         add(composeMaterial)
         add(composeUi)
+        add(roomRuntime)
     }
 
     val testLibraries = arrayListOf<String>().apply {
