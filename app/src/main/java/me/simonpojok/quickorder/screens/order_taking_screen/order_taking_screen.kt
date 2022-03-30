@@ -111,6 +111,7 @@ fun OrderTakingScreen(
                             cursorColor = Color.Gray,
                             backgroundColor = MaterialTheme.colors.surface.copy(alpha = 0.3f)
                         ),
+                        placeholder = { Text(text = "Customer Name") }
                     )
                 }
 
