@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import me.simonpojok.proder.MainActivity
 import me.simonpojok.proder.model.OrderUiModel
@@ -67,7 +68,10 @@ val orders = listOf(
 )
 
 @Composable
-fun OrderScreen(navController: NavHostController) {
+fun OrderScreen(
+    navController: NavHostController,
+    viewModel: OrdersViewModel = hiltViewModel()
+) {
     val context = LocalContext.current as MainActivity
 
 
@@ -120,7 +124,9 @@ fun OrderScreen(navController: NavHostController) {
                 )
             }
 
-            LazyColumn(modifier = Modifier.padding(top = 20.dp).weight(3f)) {
+            LazyColumn(modifier = Modifier
+                .padding(top = 20.dp)
+                .weight(3f)) {
                 items(orders.size) { index ->
                     val order = orders[index]
                     Column {

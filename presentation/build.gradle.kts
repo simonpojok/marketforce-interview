@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    kotlin("android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -32,13 +34,28 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.5.0")
+    implementation(project(":domain"))
+
+
+    implementation("javax.inject:javax.inject:1")
+
+    //noinspection GradleDependency
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
+
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    kapt("androidx.lifecycle:lifecycle-compiler:2.4.0")
+    // ReactiveStreams support for LiveData
+    implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.4.0")
+
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation("org.mockito:mockito-core:3.6.28")
+    androidTestImplementation("androidx.test:runner:1.4.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
+
+    implementation("com.google.dagger:hilt-android:2.39")
+    kapt("com.google.dagger:hilt-android-compiler:2.39")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
 
 
 }
