@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="QuickOrder.app" target="11" />
+      <module name="QuickOrder.buildSrc" target="11" />
       <module name="QuickOrder.local" target="11" />
       <module name="QuickOrder.presentation" target="11" />
     </bytecodeTargetLevel>
