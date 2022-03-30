@@ -1,15 +1,10 @@
 object Versions {
-    //app level
-    const val gradle = "4.0.1"
-    const val kotlin = "1.4.0"
+    const val kotlinStandardLibrary = "1.5.31"
+    const val squareUpRetrofit = "2.9.0"
+    const val converterGson = "2.9.0"
+    const val javaxInject = "1"
+    const val kotlinxCoroutinesAndroid = "1.3.9"
 
-    //libs
-    val coreKtx = "1.2.0"
-    val appcompat = "1.3.0-alpha01"
-    val constraintLayout = "2.0.0-beta8"
-
-    //test
-    val junit = "4.12"
-    val extJunit = "1.1.1"
-    val espresso = "3.2.0"
+    const val junitJunit = "4.13.2"
+    const val mockitoCore = "3.6.28"
 }
