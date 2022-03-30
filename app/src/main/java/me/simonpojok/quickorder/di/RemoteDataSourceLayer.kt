@@ -11,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-private const val BASE_URL = "https://api.marketforce.com/"
+private const val BASE_URL = "https://monitor4home.herokuapp.com/"
 
 @Module
 @InstallIn(SingletonComponent::class)
