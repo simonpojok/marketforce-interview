@@ -34,4 +34,9 @@ object Versions {
     // Android
     const val testRunner ="1.4.0"
     const val espressoCore = "3.4.0"
+
+    // Room
+    const val room = "2.4.2"
+    const val roomRuntime = "2.4.1"
+    const val roomCompiler = "2.4.1"
 }
