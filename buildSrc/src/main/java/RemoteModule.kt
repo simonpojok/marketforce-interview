@@ -5,8 +5,8 @@ object RemoteModule {
     private const val javaxInject = "javax.inject:javax.inject:${Versions.javaxInject}"
 
     // Test
-    const val junitJunit = "junit:junit:${Versions.junitJunit}"
-    const val mockitoCore = "org.mockito:mockito-core:${Versions.mockitoCore}"
+    private const val junitJunit = "junit:junit:${Versions.junitJunit}"
+    private const val mockitoCore = "org.mockito:mockito-core:${Versions.mockitoCore}"
 
     val remoteImplementationLibraries = arrayListOf<String>().apply {
         add(kotlinStandardLib)
