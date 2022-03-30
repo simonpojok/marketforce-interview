@@ -5,6 +5,9 @@ object Versions {
     const val versionCode = 1
     const val versionName = "1.0.1-dev"
 
+    // Compose
+    const val compose = "1.0.5"
+
 
 
     const val kotlinStandardLibrary = "1.5.31"
