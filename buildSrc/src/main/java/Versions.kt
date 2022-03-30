@@ -5,8 +5,15 @@ object Versions {
     const val versionCode = 1
     const val versionName = "1.0.1-dev"
 
+    // Kotlin
+    const val coreKtx = "1.7.0"
+
     // Compose
     const val compose = "1.0.5"
+    const val composeNavigation = "2.4.0-beta02"
+    const val lifecycleRuntimeKtx = "2.4.1"
+    const val activityCompose = "1.4.0"
+    const val hiltLifeCycleViewModel = "1.0.0-alpha03"
 
 
 
