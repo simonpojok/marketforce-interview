@@ -19,7 +19,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -27,11 +32,16 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import kotlinx.coroutines.delay
 import me.simonpojok.presentation.viewModel.OrdersViewModel
 import me.simonpojok.quickorder.MainActivity
+import me.simonpojok.quickorder.getUserName
+import me.simonpojok.quickorder.saveUserName
 import me.simonpojok.quickorder.screens.Screen
 import me.simonpojok.quickorder.screens.components.Toolbar
+import me.simonpojok.quickorder.screens.orders_screen.components.NameRequestDialog
 import me.simonpojok.quickorder.screens.orders_screen.components.OrderItem
+import me.simonpojok.quickorder.screens.orders_screen.components.UserGreedDialog
 
 @Composable
 fun OrderScreen(
@@ -42,6 +52,10 @@ fun OrderScreen(
     val orders = viewModel.orders.collectAsState(initial = emptyList())
     val ordersUi = orders.value.map { context.orderPresentationToUiMapper.toUi(it) }
         .sortedByDescending { order -> order.dateTime.toLong() }
+    var name by remember { mutableStateOf(getUserName(context)) }
+    var showGreeting by remember { mutableStateOf(false) }
+
+    val isPresentGreetings = !context.mainViewModel.greetingAlreadyShown && showGreeting && (name.isNotBlank() || name.isNotEmpty())
 
     Scaffold(
         topBar = {
@@ -58,6 +72,19 @@ fun OrderScreen(
             }
         }
     ) {
+        if (name.isBlank() || name.isBlank()) {
+            NameRequestDialog {
+                saveUserName(context, name)
+                name = it
+            }
+        }
+
+        if (isPresentGreetings) {
+            UserGreedDialog(name) {
+                context.mainViewModel.greetingAlreadyShown = true
+                showGreeting = false
+            }
+        }
 
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -112,5 +139,10 @@ fun OrderScreen(
                 }
             }
         }
+    }
+
+    LaunchedEffect(true) {
+        delay(1000L)
+        showGreeting = true
     }
 }

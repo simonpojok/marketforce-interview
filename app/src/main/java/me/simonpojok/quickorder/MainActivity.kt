@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -12,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
+import me.simonpojok.presentation.viewModel.MainViewModel
 import me.simonpojok.quickorder.background.OrderSyncWorker
 import me.simonpojok.quickorder.mapper.OrderPresentationToUiMapper
 import me.simonpojok.quickorder.mapper.OrderUiToPresentationMapper
@@ -26,6 +28,8 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     lateinit var orderPresentationToUiMapper: OrderPresentationToUiMapper
+
+    val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
