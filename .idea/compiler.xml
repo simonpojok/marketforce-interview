@@ -2,10 +2,9 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
-      <module name="PrOder.app" target="11" />
-      <module name="PrOder.buildSrc" target="11" />
-      <module name="PrOder.local" target="11" />
-      <module name="PrOder.presentation" target="11" />
+      <module name="QuickOrder.app" target="11" />
+      <module name="QuickOrder.local" target="11" />
+      <module name="QuickOrder.presentation" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

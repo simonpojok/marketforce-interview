@@ -12,10 +12,10 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "PrOder"
+rootProject.name = "QuickOrder"
 include ':app'
-include ':remote'
 include ':data'
-include ':local'
 include ':domain'
+include ':local'
 include ':presentation'
+include ':remote'
